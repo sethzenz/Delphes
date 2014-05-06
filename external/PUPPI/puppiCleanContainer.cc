@@ -114,7 +114,7 @@ void puppiCleanContainer::getRMSAvg(int iOpt,std::vector<fastjet::PseudoJet> &iC
     lNCount[getEtaId(iConstits[i0].eta())]++;
     if(pVal == 0) continue;
     if(iConstits[i0].pt() < iPtRMS) continue;
-    if( fabs(iConstits[i0].eta()) < 4.0  && iConstits[i0].user_index() % 4 != 3 ) continue;
+    if( fabs(iConstits[i0].eta()) < fTrackerEta  && iConstits[i0].user_index() % 4 != 3 ) continue;
     lValsPU[getEtaId(iConstits[i0].eta())].push_back(pVal);
   }
   for(int i0 = 0; i0 < fNEta; i0++) if(lValsPU[i0].size() > 0) std::sort (lValsPU[i0]    .begin(),lValsPU[i0]    .end());   
